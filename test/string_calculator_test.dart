@@ -23,4 +23,14 @@ void main() {
     final calc = StringCalculator();
     expect(calc.add("//;\n1;2"), equals(3));
   });
+
+  test('Exception message lists all negative numbers', () {
+    final calc = StringCalculator();
+    expect(
+      () => calc.add("-1,-2,3,-4"),
+      throwsA(predicate((e) =>
+          e is FormatException &&
+          e.message == 'negative numbers not allowed -1,-2,-4')),
+    );
+  });
 }
