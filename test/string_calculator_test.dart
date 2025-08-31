@@ -18,4 +18,9 @@ void main() {
     final calc = StringCalculator();
     expect(calc.add("1\n2,3"), equals(6));
   });
+
+  test('Handle delimiters between numbers', () {
+    final calc = StringCalculator();
+    expect(calc.add("//;\n1;2"), equals(3));
+  });
 }
