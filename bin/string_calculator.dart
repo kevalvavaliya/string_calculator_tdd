@@ -20,7 +20,12 @@ class StringCalculator {
         numbersList.addAll(part.split('\n'));
       }
     }
-    return numbersList.map(int.parse).reduce((a, b) => a + b);
+    List<int> intList = numbersList.map(int.parse).toList();
+    List<int> negatives = intList.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw FormatException('negative numbers not allowed ${negatives.join(',')}');
+    }
+    return intList.reduce((a, b) => a + b);
   }
 
 }
