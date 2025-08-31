@@ -1,8 +1,9 @@
-class StringCalculator{
-  int add(String numbers){
+class StringCalculator {
+  int add(String numbers) {
     if (numbers.isEmpty) {
       return 0;
     }
-    return int.parse(numbers);
+    final numbersList = numbers.split(',');
+    return numbersList.map(int.parse).reduce((a, b) => a + b);
   }
 }

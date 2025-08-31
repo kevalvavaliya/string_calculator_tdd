@@ -11,6 +11,6 @@ void main() {
 
   test('Sum of comma-separated numbers', () {
     final calc = StringCalculator();
-    expect(calc.add("1,2,3"), equals(6));
+    expect(calc.add("1,2,3,4,5"), equals(15));
   });
 }
